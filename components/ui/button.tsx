@@ -5,7 +5,7 @@ import {TextClassContext} from "@/components/ui/text";
 import {cn} from "@/lib/utils";
 
 const buttonVariants = cva(
-  "group flex items-center justify-center rounded-md web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2",
+  "group flex items-center justify-center rounded-md web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2 web:cursor-pointer",
   {
     variants: {
       variant: {
@@ -80,6 +80,9 @@ const Button = React.forwardRef<
         )}
         ref={ref}
         role="button"
+        android_ripple={{
+          color: "rgba(0, 0, 0, 0.1)",
+        }}
         {...props}
       />
     </TextClassContext.Provider>

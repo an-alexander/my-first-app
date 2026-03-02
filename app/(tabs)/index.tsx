@@ -6,6 +6,7 @@ import {Link, Stack} from "expo-router";
 import * as React from "react";
 import {useLiveQuery} from "drizzle-orm/expo-sqlite";
 import {Text} from "@/components/ui/text";
+import {Button} from "@/components/ui/button";
 import {habitTable, type Habit} from "@/db/schema";
 import {Plus} from "@/components/Icons";
 import {useMigrationHelper} from "@/db/drizzle";
@@ -103,11 +104,9 @@ function ScreenContent() {
       />
       <View className="absolute web:bottom-20 bottom-10 right-8">
         <Link href="/create" asChild>
-          <Pressable>
-            <View className="bg-primary justify-center rounded-full h-[45px] w-[45px]">
-              <Plus className="text-background self-center" />
-            </View>
-          </Pressable>
+          <Button size="icon" className="rounded-full h-[55px] w-[55px] shadow-lg shadow-primary/30">
+            <Plus className="text-primary-foreground" size={24} />
+          </Button>
         </Link>
       </View>
     </View>

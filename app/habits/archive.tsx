@@ -48,24 +48,33 @@ export default function Home() {
   }
 
   async function handleDeleteHabit(habitId: string) {
+    if (Platform.OS === 'web') {
+      const result = window.confirm('Are you absolutely sure you want to delete this Habit?');
+      if (result) {
+        try {
+          await db?.delete(habitTable).where(eq(habitTable.id, habitId)).execute();
+        } catch (error) {
+          console.error("error", error);
+        }
+      }
+      return;
+    }
     Alert.alert('Are you absolutely sure?', 'Are you sure you want to delete this Habit ?', [
       {
         text: 'Cancel',
       },
       {
         text: 'Continue',
-        onPress: () => {
-          // try {
-          //   await db?.delete(habitTable).where(eq(habitTable.id, habitId)).execute();
-          // } catch (error) {
-          //   console.error("error", error);
-          // }
+        onPress: async () => {
+          try {
+            await db?.delete(habitTable).where(eq(habitTable.id, habitId)).execute();
+          } catch (error) {
+            console.error("error", error);
+          }
         },
         style: 'destructive',
       },
     ]);
-    // Are you sure you want to delete this Habit ?
-
   }
   const renderItem = React.useCallback(
     ({item}: {item: Habit}) => <HabitCard onDelete={handleDeleteHabit} onRestore={handleRestoreHabit} {...item} />,

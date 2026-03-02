@@ -86,7 +86,7 @@ const ListItem: React.FC<ListItemProps> = ({
 		<Component
 			className={cn(
 				"flex-row items-center justify-between w-full px-4 py-3 border-b border-border bg-card",
-				pressable ? "web:hover:opacity-90 active:opacity-90" : "",
+				pressable ? "web:hover:opacity-90 active:opacity-90 web:cursor-pointer" : "",
 				listItemTextVariants({variant}),
 				className,
 			)}

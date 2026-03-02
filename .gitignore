@@ -43,3 +43,7 @@ expo-env.d.ts
 android
 ios
 notes.txt
+
+*.db
+*.sqlite
+.env

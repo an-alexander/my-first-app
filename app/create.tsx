@@ -64,7 +64,7 @@ const formSchema = createInsertSchema(habitTable, {
   category: z.object(
     { value: z.string(), label: z.string() },
     {
-      invalid_type_error: "Please select a favorite email.",
+      invalid_type_error: "Please select a category.",
     },
   ),
   duration: z.union([z.string(), z.number()]),

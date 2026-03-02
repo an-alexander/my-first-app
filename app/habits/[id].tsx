@@ -117,9 +117,7 @@ export default function FormScreen() {
     return {
       name: "",
       description: "",
-      duration: {
-        label: "", value: ""
-      },
+      duration: 5,
       category: {
         label: "", value: ""
       },
@@ -166,7 +164,7 @@ export default function FormScreen() {
         name: values.name,
         description: values.description,
         duration: Number(values.duration),
-        // category: values.category.value,
+        category: values.category.value,
         enableNotifications: values.enableNotifications,
       }).where(eq(habitTable.id, id as string))
         .execute();
